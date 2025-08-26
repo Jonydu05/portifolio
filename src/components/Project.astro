@@ -1,0 +1,13 @@
+---
+import type { ProjectType } from '../types/index';
+const { id, name, description, link, image } = Astro.props as ProjectType;
+---
+
+<article class='project' id={id}>
+  <img src={image} alt={name} />
+  <div>
+    <h3>{name}</h3>
+    <p>{description}</p>
+    <a href={link} target='_blank' rel='noopener noreferrer'>Ver Projeto</a>
+  </div>
+</article>

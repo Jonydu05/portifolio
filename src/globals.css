@@ -25,3 +25,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.hero {
+  width: 100%;
+}
+
+.hero > * {
+  max-width: 960px;
+  margin: 0 auto;
+}

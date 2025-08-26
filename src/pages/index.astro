@@ -1,11 +1,62 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Project from '../components/Project.astro';
 import Layout from '../layouts/Layout.astro';
+import type { ProjectType } from '../types';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const res = await fetch('/projects.json');
+const projects: ProjectType[] = await res.json();
 ---
 
 <Layout>
-	<Welcome />
+  <main>
+    <div class='hero primary'>
+      <section class='info' id='about-me'>
+        <div>
+          <img src='' alt='' />
+          <h1>João Cardoso</h1>
+          <h2>Desenvolvedor Front-end</h2>
+        </div>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta architecto aspernatur porro reprehenderit
+          harum quas, voluptatem esse fugit quibusdam enim aliquid maxime molestiae, pariatur aliquam vero cumque
+          eveniet dolorum et!
+        </p>
+      </section>
+    </div>
+
+    <div class='hero secondary'>
+      <section class='info' id='projects'>
+        <h2>Projetos</h2>
+        {projects.map((project) => <Project {...project} />)}
+      </section>
+    </div>
+
+    <div class='hero tertiary'>
+      <section class='info' id='contact'>
+        <h2>Contato</h2>
+        <p>Você pode me encontrar em:</p>
+        <ul>
+          <li><a target='_blank' href='https://www.linkedin.com/in/joao-cardoso-525937244/'>LinkedIn</a></li>
+          <li><a target='_blank' href='https://github.com/Jonydu05'>Github</a></li>
+          <li><a target='_blank' href='https://www.instagram.com/jonydu05/'>Instagam</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .primary {
+    background: color-mix(in srgb, var(--secondary-color) 20%, white);
+    color: color-mix(in srgb, var(--primary-color) 80%, black);
+  }
+  .secondary {
+    background: color-mix(in srgb, var(--primary-color) 20%, white);
+    color: color-mix(in srgb, var(--secondary-color) 80%, black);
+  }
+
+  .tertiary {
+    background: color-mix(in srgb, black 20%, white);
+    color: color-mix(in srgb, white 80%, black);
+  }
+</style>
