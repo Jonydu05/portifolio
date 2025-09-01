@@ -1,10 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import profilePic from '../assets/profile-pic.jpg';
+import projects from '../assets/projects.json';
 import Project from '../components/Project.astro';
 import Layout from '../layouts/Layout.astro';
-import type { ProjectType } from '../types';
-
-const res = await fetch('/projects.json');
-const projects: ProjectType[] = await res.json();
 ---
 
 <Layout>
@@ -12,14 +11,18 @@ const projects: ProjectType[] = await res.json();
     <div class='hero primary'>
       <section class='info' id='about-me'>
         <div>
-          <img src='' alt='' />
+          <Image
+            src={profilePic}
+            alt='Foto minha (João Cardoso), de frente a um espelho. Celular centralizado na imagem. Eu estou com uma camiseta preta, com estampa de uma flor roxa, embaixo dela uma camiseta de manga longa, verde. Eu estou usando um headphone preto e um colar prata.'
+          />
           <h1>João Cardoso</h1>
           <h2>Desenvolvedor Front-end</h2>
         </div>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta architecto aspernatur porro reprehenderit
-          harum quas, voluptatem esse fugit quibusdam enim aliquid maxime molestiae, pariatur aliquam vero cumque
-          eveniet dolorum et!
+          Olá! Meu nome é João Cardoso, tenho 20 anos e sou um desenvolvedor front-end apaixonado por criar experiências
+          digitais incríveis. Com habilidades em HTML, CSS, JavaScript e frameworks modernos, como Angular e NextJs,
+          estou sempre em busca de aprender novas tecnologias e aprimorar minhas habilidades. Adoro trabalhar em equipe
+          e enfrentar desafios criativos para entregar soluções inovadoras.
         </p>
       </section>
     </div>
@@ -58,5 +61,126 @@ const projects: ProjectType[] = await res.json();
   .tertiary {
     background: color-mix(in srgb, black 20%, white);
     color: color-mix(in srgb, white 80%, black);
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .info {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .info h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+
+  .info p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .info ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .info ul li {
+    margin-bottom: 10px;
+  }
+
+  .info ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+  }
+
+  .info ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .info div {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .info h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+
+  .info h2 {
+    margin: 5px 0 0 0;
+    font-size: 1.5em;
+    color: var(--secondary-color);
+  }
+
+  @media (max-width: 600px) {
+    .info img {
+      width: 120px;
+      height: 120px;
+    }
+
+    .info h1 {
+      font-size: 2em;
+    }
+
+    .info h2 {
+      font-size: 1.2em;
+    }
+  }
+
+  a {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: var(--secondary-color);
+  }
+
+  a:active {
+    color: var(--primary-color);
+  }
+
+  a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  a:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  a:hover,
+  a:focus,
+  a:focus-visible {
+    text-decoration: underline;
   }
 </style>
