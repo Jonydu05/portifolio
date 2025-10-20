@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import profilePic from '../assets/profile-pic.jpg';
+// import profilePic from '../assets/profile-pic.jpg';
 import projects from '../assets/projects.json';
 import Project from '../components/Project.astro';
 import Layout from '../layouts/Layout.astro';
@@ -11,10 +11,10 @@ import Layout from '../layouts/Layout.astro';
     <div class='hero primary'>
       <section class='info' id='about-me'>
         <div>
-          <Image
+          <!-- <Image
             src={profilePic}
             alt='Foto minha (João Cardoso), de frente a um espelho. Celular centralizado na imagem. Eu estou com uma camiseta preta, com estampa de uma flor roxa, embaixo dela uma camiseta de manga longa, verde. Eu estou usando um headphone preto e um colar prata.'
-          />
+          /> -->
           <h1>João Cardoso</h1>
           <h2>Desenvolvedor Front-end</h2>
         </div>
@@ -39,9 +39,21 @@ import Layout from '../layouts/Layout.astro';
         <h2>Contato</h2>
         <p>Você pode me encontrar em:</p>
         <ul>
-          <li><a target='_blank' href='https://www.linkedin.com/in/joao-cardoso-525937244/'>LinkedIn</a></li>
-          <li><a target='_blank' href='https://github.com/Jonydu05'>Github</a></li>
-          <li><a target='_blank' href='https://www.instagram.com/jonydu05/'>Instagam</a></li>
+          <li>
+            <a target='_blank' href='https://www.linkedin.com/in/joao-cardoso-525937244/'>
+              <i class='ph ph-linkedin-logo'></i>
+            </a>
+          </li>
+          <li>
+            <a target='_blank' href='https://github.com/Jonydu05'>
+              <i class='ph ph-github-logo'></i>
+            </a>
+          </li>
+          <li>
+            <a target='_blank' href='https://www.instagram.com/jonydu05/'>
+              <i class='ph ph-instagram-logo'></i>
+            </a>
+          </li>
         </ul>
       </section>
     </div>
